@@ -1,0 +1,31 @@
+
+
+Signed-off-by: Jack <zsdfbb@126.com>
+
+# =======================================================
+# git commit message的格式：
+# =======================================================
+# 
+# <type>(<scope>): <subject>
+# 
+# <body>
+# 
+# <footer>
+# 
+# <type>是必须的，表示commit的类型，包括以下7个
+# 
+# feat：新功能（feature）
+# fix：修补bug
+# docs：文档（documentation）
+# style： 格式（不影响代码运行的变动）
+# refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+# test：增加测试
+# chore：构建过程或辅助工具的变动
+# <scope>是可选的，表示commit影响的范围。
+# 
+# <subject>是必须的，简短描述commit的主要内容。
+# 
+# <body>是可选的，详细描述commit的内容。
+# 
+# <footer>是可选的，用于关闭issue或者添加关联信息等。
+# 

@@ -1,0 +1,31 @@
+[user]
+	name = zsdfbb
+	email = zsdfbb@126.com
+
+[alias]
+	co = commit
+	ck = checkout
+	st = status
+	ls = log --stat
+	po = pull origin
+	dh = diff HEAD^
+	ri = rebase -i
+	pom = push origin master
+
+[core]
+	editor = nvim
+	# git status 显示中文
+	quotepath = false
+
+[commit]
+	template = ~/.git_template
+
+[credential]
+	helper = store
+[http]
+	sslverify = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
