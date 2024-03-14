@@ -24,6 +24,7 @@
 	helper = store
 [http]
 	sslverify = false
+	postBuffer = 1048576000
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

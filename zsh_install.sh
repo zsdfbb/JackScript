@@ -7,7 +7,7 @@ function zsh_install() {
     echo "Configure zsh"
 
     if ! [ -d $HOME/.oh-my-zsh ]; then
-        git clone --depth=1 https://gitee.com/mirrors/oh-my-zsh.git $HOME/.oh-my-zsh
+        git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
     fi
 
     if [ -e $HOME/.zshrc ]; then
@@ -19,7 +19,7 @@ function zsh_install() {
     echo "source $HOME/.profile" >> $HOME/.zshrc
     sed -i 's/ZSH_THEME=\".*\"/ZSH_THEME=\"crcandy\"/g' $HOME/.zshrc
 
-    echo "source ${HOME}/Develop/myscript/zshrc" >> ${HOME}/.zshrc
+    cat ./zshrc >> ${HOME}/.zshrc
 
     echo "Configure zsh OK!" 
     echo "NOTICE: Please log out from your user session and log back in to see this change"
