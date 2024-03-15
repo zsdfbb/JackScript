@@ -2,8 +2,6 @@
 
 # 安装并配置zsh
 function zsh_install() {
-    sudo apt-get install zsh
-
     echo "Configure zsh"
 
     if ! [ -d $HOME/.oh-my-zsh ]; then
