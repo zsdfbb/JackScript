@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo "Start configure git"
-rm -rf ${HOME}/.gitconfig
-ln -s $(pwd)/git/gitconfig ${HOME}/.gitconfig
-ln -s $(pwd)/git/git_template ${HOME}/.git_template
+rm -rf ${HOME}/.gitconfig ${HOME}/.git_template
+cp $(pwd)/git/gitconfig ${HOME}/.gitconfig
+cp $(pwd)/git/git_template ${HOME}/.git_template
 
 git config --global --unset http.proxy
 git config --global --unset https.proxy
