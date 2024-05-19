@@ -3,7 +3,7 @@
 # BASE_DIR 是仓的linuxlab目录
 BASE_DIR=$(pwd)
 
-if [ $1 = "" ];then
+if [ "$1" = "" ];then
 	LAB_DIR=${HOME}/Develop/LinuxLab
 	mkdir -p $LAB_DIR
 fi
