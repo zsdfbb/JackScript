@@ -10,8 +10,8 @@ mkdir -p $LAB_DIR
 # 安装依赖
 #=================
 sudo apt install qemu-system-aarch64 qemu-user \
-	qemu-user-static gcc-aarch64-linux-gnu \ 
-	binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg \ 
+	qemu-user-static gcc-aarch64-linux-gnu \
+	binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg \
 	build-essential libncurses5-dev git bison flex \
 	libssl-dev gdb gdb-multiarch
 
