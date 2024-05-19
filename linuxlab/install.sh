@@ -28,7 +28,7 @@ mkdir -p $LAB_DIR/linux \
 	$LAB_DIR/linux/build \
 	$LAB_DIR/linux/src \
 	$LAB_DIR/linux/install
-cp $BASE_DIR/linux_build.sh $LAB_DIR/busybox/build.sh
+cp $BASE_DIR/linux_build.sh $LAB_DIR/linux/build.sh
 
 #=================
 # 准备 rootfs
