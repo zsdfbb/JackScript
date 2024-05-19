@@ -33,9 +33,9 @@ cp $BASE_DIR/linux_build.sh $LAB_DIR/busybox/build.sh
 #=================
 # 准备 rootfs
 #=================
-cp $BASE_DIR/linuxlab/mkroot.sh $LAB_DIR/
+cp $BASE_DIR/mkroot.sh $LAB_DIR/
 
 #=================
 # 准备 qemu run
 #=================
-cp $BASE_DIR/linuxlab/qemu.run $LAB_DIR/
+cp $BASE_DIR/qemu.run $LAB_DIR/
