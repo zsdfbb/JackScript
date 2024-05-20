@@ -3,6 +3,9 @@
 你可以使用该脚本可以快速搭建一个linux内核的调试环境。
 其中包含 linux、busybox的源码、编译脚本、rootfs打包脚本、qemu运行脚本等。
 
+测试版本：
+Ubuntu 24.04， linux master、busybox 1.36.0
+
 ## 环境搭建
 
 执行 ./install.sh ，获得一个工作目录树和源码。
@@ -75,6 +78,9 @@ CONFIG_CROSS_COMPILE="aarch64-linux-gnu-"
 # 开启静态编译
 Settings ---> 
     [*] Build BusyBox as a static binary (no shared libs)
+
+# 关闭 CONFIG_TC
+# 规避 Busybox fails to build with linux kernels >= 6.8
 ```
 
 接下来，我们使用 build.sh build 完成编译。
