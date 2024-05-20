@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # 配置
-WORK_DIR=/home/shuai/LinuxLab/busybox
+WORK_DIR=${HOME}/Develop/LinuxLab/busybox
 SRC=$WORK_DIR/src
 BUILD=$WORK_DIR/build
 INSTALL=$WORK_DIR/install

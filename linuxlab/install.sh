@@ -27,8 +27,7 @@ cp $BASE_DIR/busybox_build.sh $LAB_DIR/busybox/build.sh
 git clone --depth=1 https://github.com/mirror/busybox.git $LAB_DIR/busybox/src
 
 mkdir -p $LAB_DIR/linux \
-	$LAB_DIR/linux/build \
-	$LAB_DIR/linux/install
+	$LAB_DIR/linux/build 
 cp $BASE_DIR/linux_build.sh $LAB_DIR/linux/build.sh
 git clone --depth=1 https://github.com/torvalds/linux.git $LAB_DIR/linux/src
 
