@@ -49,12 +49,25 @@ CONFIG_KASAN
 
 # 开启代码覆盖率
 CONFIG_KCOV
+
+
+CONFIG_KCOV=y
+CONFIG_KASAN=y
+CONFIG_DEBUG_INFO=y
+CONFIG_CMDLINE="console=ttyAMA0"
+CONFIG_KCOV_INSTRUMENT_ALL=y
+CONFIG_DEBUG_FS=y
+CONFIG_NET_9P=y
+CONFIG_NET_9P_VIRTIO=y
+CONFIG_CROSS_COMPILE="aarch64-linux-gnu-"
 ```
 
 配置完成后，执行 ./build.sh build 进行编译。
 开始会有一些提示，一路默认回车即可。
 
-### Busybox 编译
+### rootfs 构建
+
+#### busybox 和 mkroot 脚本
 
 首先，我们使用 "build.sh config" 时调整下配置：
 
@@ -66,6 +79,15 @@ Settings --->
 
 接下来，我们使用 build.sh build 完成编译。
 
+最后，使用 mkroot.sh 构建rootfs。
 
+这种方式构建的镜像可以用来进行kernel的手动调试，方便我们分析代码。
 
+#### buildroot 构建rootfs
 
+使用buildroot构建的rootfs，可以打包各种配置文件、sshd等程序，方便进行syzkaller。
+请参考 [1] 的内容进行编译。
+
+## 参考
+
+1. [Linux+arm64+qemu+syzkaller 部署](https://github.com/google/syzkaller/blob/master/docs/linux/setup_linux-host_qemu-vm_arm64-kernel.md)

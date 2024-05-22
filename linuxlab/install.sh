@@ -31,6 +31,11 @@ mkdir -p $LAB_DIR/linux \
 cp $BASE_DIR/linux_build.sh $LAB_DIR/linux/build.sh
 git clone --depth=1 https://github.com/torvalds/linux.git $LAB_DIR/linux/src
 
+mkdir -p $LAB_DIR/buildroot \
+	$LAB_DIR/buildroot/build 
+cp $BASE_DIR/buildroot_build.sh $LAB_DIR/linux/build.sh
+git clone --depth=1 https://github.com/buildroot/buildroot.git $LAB_DIR/buildroot/src
+
 #=================
 # 准备 rootfs
 #=================
@@ -40,3 +45,11 @@ cp $BASE_DIR/mkroot.sh $LAB_DIR/
 # 准备 qemu run
 #=================
 cp $BASE_DIR/qemu.run $LAB_DIR/
+cp $BASE_DIR/qemu_syzkaller.run $LAB_DIR/
+
+#=================
+# 准备 syzkaller workspace
+#=================
+mkdir -p $LAB_DIR/syzkaller_workspace
+cp $BASE_DIR/syzkaller.conf $LAB_DIR/syzkaller_workspace/
+
