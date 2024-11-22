@@ -13,7 +13,7 @@
 	pom = push origin master
 
 [core]
-	editor = nvim
+	editor = vim
 	# git status 显示中文
 	quotepath = false
 
