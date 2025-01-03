@@ -29,7 +29,7 @@ cp $BASE_DIR/linux_build.sh $LAB_DIR/linux/build.sh
 git clone --depth=1 https://github.com/torvalds/linux.git $LAB_DIR/linux/src
 
 mkdir -p $LAB_DIR/buildroot $LAB_DIR/buildroot/build
-cp $BASE_DIR/buildroot_build.sh $LAB_DIR/linux/build.sh
+cp $BASE_DIR/buildroot_build.sh $LAB_DIR/buildroot/build.sh
 git clone --depth=1 https://github.com/buildroot/buildroot.git $LAB_DIR/buildroot/src
 
 git clone --depth=1 https://github.com/google/syzkaller.git $LAB_DIR/syzkaller
