@@ -14,20 +14,19 @@ Ubuntu 24.04， linux master、busybox 1.36.0
 类似这样： 
 
 ```
-[~/Develop/LinuxLab]
--> % tree -L 2
+zs@zs-Alpha-17 ~/D/LinuxLab> tree -L 1
 .
+├── buildroot
+├── build_syzkaller.sh
 ├── busybox
-│   ├── build
-│   ├── build.sh
-│   └── src
 ├── linux
-│   ├── build
-│   ├── build.sh
-│   ├── install
-│   └── src
-├── mkrootfs.sh
+├── mkroot.sh
 ├── qemu.run
+├── qemu_syzkaller.run
+├── rootfs_ext4.img
+├── syzkaller
+└── syzkaller_workspace
+
 ```
 
 ## 编译
@@ -38,23 +37,14 @@ Ubuntu 24.04， linux master、busybox 1.36.0
 
 首先，我们需要配置Linux的编译选项。
 请执行 ./build.sh config，并配置下列选项。
-如果中途需要调整，请进入 build目录执行 make menuconfig即可。
+我们也可以直接将下列config配置文件的内容复制到 build 目录下的 .config 文件中。
 
 ```
 # 关闭 “地址随机化”：
-CONFIG_RANDOMIZE_BASE
-
-# 开启 “gdb 调试脚本”
-CONFIG_GDB_SCRIPTS
-
-# 开启KASAN
-CONFIG_KASAN
-
+CONFIG_RANDOMIZE_BASE=n
 # 开启代码覆盖率
-CONFIG_KCOV
-
-
 CONFIG_KCOV=y
+# 开启KASAN
 CONFIG_KASAN=y
 CONFIG_DEBUG_INFO=y
 CONFIG_CMDLINE="console=ttyAMA0"
@@ -70,7 +60,13 @@ CONFIG_CROSS_COMPILE="aarch64-linux-gnu-"
 
 ### rootfs 构建
 
-#### busybox 和 mkroot 脚本
+#### buildroot 构建rootfs（推荐方案）
+
+使用buildroot构建的rootfs，可以打包各种配置文件、sshd等程序，方便进行syzkaller。
+请参考 [1] 的内容进行编译。
+
+
+#### busybox 和 mkroot 脚本（候选方案）
 
 首先，我们使用 "build.sh config" 时调整下配置：
 
@@ -85,14 +81,10 @@ Settings --->
 
 接下来，我们使用 build.sh build 完成编译。
 
-最后，使用 mkroot.sh 构建rootfs。
+然后，使用 mkroot.sh 构建rootfs。
 
-这种方式构建的镜像可以用来进行kernel的手动调试，方便我们分析代码。
+最后，我们可以直接使用 ./qemu.run 运行kernel即可。
 
-#### buildroot 构建rootfs
-
-使用buildroot构建的rootfs，可以打包各种配置文件、sshd等程序，方便进行syzkaller。
-请参考 [1] 的内容进行编译。
 
 ## 参考
 

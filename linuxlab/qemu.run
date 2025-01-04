@@ -8,5 +8,4 @@ qemu-system-aarch64 \
         -smp 4  \
         -M virt \
         -cpu cortex-a57 \
-        -hda rootfs_ext4.img \
-        -d
+        -hda rootfs_ext4.img

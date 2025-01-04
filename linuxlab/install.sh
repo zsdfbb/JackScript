@@ -22,7 +22,7 @@ sudo apt install qemu-system-aarch64 qemu-user \
 #=================
 mkdir -p $LAB_DIR/busybox $LAB_DIR/busybox/build $LAB_DIR/busybox/install
 cp $BASE_DIR/busybox_build.sh $LAB_DIR/busybox/build.sh
-git clone --depth=1 https://github.com/mirror/busybox.git $LAB_DIR/busybox/src
+git clone --depth=1 https://github.com/mirror/busybox.git -b 1_36_stable $LAB_DIR/busybox/src
 
 mkdir -p $LAB_DIR/linux $LAB_DIR/linux/build
 cp $BASE_DIR/linux_build.sh $LAB_DIR/linux/build.sh
@@ -33,7 +33,7 @@ cp $BASE_DIR/buildroot_build.sh $LAB_DIR/buildroot/build.sh
 git clone --depth=1 https://github.com/buildroot/buildroot.git $LAB_DIR/buildroot/src
 
 git clone --depth=1 https://github.com/google/syzkaller.git $LAB_DIR/syzkaller
-cp $BASE_DIR/build_syzkaller.sh $LAB_DIR/linux/build_syzkaller.sh
+cp $BASE_DIR/build_syzkaller.sh $LAB_DIR/build_syzkaller.sh
 
 #=================
 # 准备 rootfs
