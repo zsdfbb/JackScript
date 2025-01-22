@@ -16,6 +16,7 @@
 	editor = vim
 	# git status 显示中文
 	quotepath = false
+	excludesfile = ~/.git_ignore
 
 [commit]
 	template = ~/.git_template
