@@ -72,13 +72,44 @@ ninja -j16
 ninja install
 ```
 
-
 ### rootfs 构建
 
 #### buildroot 构建rootfs（推荐方案）
 
 使用buildroot构建的rootfs，可以打包各种配置文件、sshd等程序，方便进行syzkaller。
-请参考 [Linux+arm64+qemu+syzkaller 部署](https://github.com/google/syzkaller/blob/master/docs/linux/setup_linux-host_qemu-vm_arm64-kernel.md) 的内容进行编译。
+请参考的下面配置进行编译。
+
+```
+Target options
+    Target Architecture - Aarch64 (little endian)
+Toolchain type
+    External toolchain - Linaro AArch64
+System Configuration
+[*] Enable root login with password
+        ( ) Root password = set your password using this option
+[*] Run a getty (login prompt) after boot  --->
+    TTY port - ttyAMA0
+Target packages
+    [*]   Show packages that are also provided by busybox
+    Networking applications
+        [*] dhcpcd
+        [*] iproute2
+        [*] openssh
+Filesystem images
+    [*] ext2/3/4 root filesystem
+        ext2/3/4 variant - ext3
+        exact size in blocks - 6000000
+    [*] tar the root filesystem
+    Target packages
+	    Miscellaneous
+	        [*] haveged
+```
+
+注意，这里的busybox也要静态编译。所以我们需要修改 package/busybox/busybox.config 中的 CONFIG_STATIC=y 选项。
+
+然后 build.sh build 进行编译。
+
+
 
 #### busybox 和 mkroot 脚本（候选方案）
 
