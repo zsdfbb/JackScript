@@ -9,7 +9,7 @@ Ubuntu 24.04， linux master、busybox 1.36.0
 ## 环境搭建
 
 执行 ./install.sh ，获得一个工作目录树和源码。
-默认会在home目录下创建一个 LinuxLab 目录，后续所有的工作都在该目录下执行。
+默认会在home目录下创建一个 Develop/LinuxLab 目录，后续所有的工作都在该目录下执行。
 
 类似这样： 
 
@@ -63,8 +63,7 @@ CONFIG_CROSS_COMPILE="aarch64-linux-gnu-"
 #### buildroot 构建rootfs（推荐方案）
 
 使用buildroot构建的rootfs，可以打包各种配置文件、sshd等程序，方便进行syzkaller。
-请参考 [1] 的内容进行编译。
-
+请参考 [Linux+arm64+qemu+syzkaller 部署](https://github.com/google/syzkaller/blob/master/docs/linux/setup_linux-host_qemu-vm_arm64-kernel.md) 的内容进行编译。
 
 #### busybox 和 mkroot 脚本（候选方案）
 
@@ -84,8 +83,3 @@ Settings --->
 然后，使用 mkroot.sh 构建rootfs。
 
 最后，我们可以直接使用 ./qemu.run 运行kernel即可。
-
-
-## 参考
-
-1. [Linux+arm64+qemu+syzkaller 部署](https://github.com/google/syzkaller/blob/master/docs/linux/setup_linux-host_qemu-vm_arm64-kernel.md)

@@ -15,7 +15,7 @@ sudo apt install qemu-system-aarch64 qemu-user \
 	qemu-user-static gcc-aarch64-linux-gnu \
 	binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg \
 	build-essential libncurses5-dev git bison flex \
-	libssl-dev gdb gdb-multiarch
+	libssl-dev gdb gdb-multiarch cpio
 
 #=================
 # 准备目录
