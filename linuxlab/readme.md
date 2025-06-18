@@ -58,6 +58,21 @@ CONFIG_CROSS_COMPILE="aarch64-linux-gnu-"
 配置完成后，执行 ./build.sh build 进行编译。
 开始会有一些提示，一路默认回车即可。
 
+### QEMU构建
+
+为了使用最新的硬件特性，我们需要重新编译qemu。按照如下方式编译即可。
+
+```shell
+git clone https://github.com/qemu/qemu.git
+cd qemu
+mkdir build
+cd build
+../configure --prefix=$(pwd) --target-list=aarch64-softmmu --enable-slirp
+ninja -j16
+ninja install
+```
+
+
 ### rootfs 构建
 
 #### buildroot 构建rootfs（推荐方案）
