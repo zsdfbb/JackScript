@@ -74,7 +74,7 @@ ninja install
 
 ### rootfs 构建
 
-#### buildroot 构建rootfs（推荐方案）
+#### buildroot 构建rootfs（Fuzz Test）
 
 使用buildroot构建的rootfs，可以打包各种配置文件、sshd等程序，方便进行syzkaller。
 请参考的下面配置进行编译。
@@ -111,7 +111,7 @@ Filesystem images
 
 
 
-#### busybox 和 mkroot 脚本（候选方案）
+#### busybox 和 mkroot 脚本（Simple Test）
 
 首先，我们使用 "build.sh config" 时调整下配置：
 
@@ -124,7 +124,7 @@ Settings --->
 # 规避 Busybox fails to build with linux kernels >= 6.8
 ```
 
-接下来，我们使用 build.sh build 完成编译。
+接下来，我们使用 build.sh build 完成编译。 build.sh install 完成安装。
 
 然后，使用 mkroot.sh 构建rootfs。
 
