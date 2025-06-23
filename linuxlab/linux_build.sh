@@ -20,7 +20,7 @@ fi
 
 if [ $1 = "build" ]; then
     cd $BUILD
-    make -j16 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+    make -j16 LLVM=1 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
     # 生成clangd依赖的编译选项，使用vscode阅读代码有帮助
     # 参考：
     # https://blog.csdn.net/ludaoyi88/article/details/135051470
