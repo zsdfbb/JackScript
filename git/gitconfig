@@ -3,7 +3,7 @@
 	email = zsdfbb@126.com
 
 [alias]
-	cm = commit
+	cm = commit -s
 	ck = checkout
 	st = status
 	ls = log --stat
