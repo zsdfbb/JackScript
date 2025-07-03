@@ -19,5 +19,18 @@ function init_repo() {
     repo sync
 }
 
+function fix_code() {
+    cd $LAB_DIR/seL4test/kernel/
+
+    # 如果 $LAB_DIR/seL4test/kernel/config.cmake 中不包含 CMAKE_EXPORT_COMPILE_COMMANDS
+    # 执行下面的命令：
+    if grep -q "CMAKE_EXPORT_COMPILE_COMMANDS ON" config.cmake; then
+        echo "config.cmake 中已经包含 CMAKE_EXPORT_COMPILE_COMMANDS"
+        return
+    fi
+    echo "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)" >> config.cmake
+}
+
 prepare_env
 init_repo
+fix_code
