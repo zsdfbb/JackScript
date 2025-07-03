@@ -28,6 +28,24 @@ index 7c97174af..16a5fdfcc 100644
 ./build.sh
 ./run.sh
 
+**调试**
+
+修改下面的配置，开启debug模式：
+
+```text
+diff --git a/config.cmake b/config.cmake
+index 7c97174af..c11daaf4e 100644
+--- a/config.cmake
++++ b/config.cmake
+@@ -242,7 +242,7 @@ config_option(
+     "When enabled this configuration option prevents the usage of any other options that\
+     would compromise the verification story of the kernel. Enabling this option does NOT\
+     imply you are using a verified kernel."
+-    DEFAULT ON
++    DEFAULT OFF
+ )
+```
+
 ## 参考
 
 https://docs.sel4.systems/Tutorials/setting-up.html
