@@ -4,8 +4,8 @@ echo "Start install common software"
 
 sudo apt update
 sudo apt install tmux vim fzf fd-find git git-lfs \
-    ripgrep curl wget tree unzip gcc make python3-venv python3-pip \
-    shfmt net-tools cpio bear ninja-build fish
+  ripgrep curl wget tree unzip gcc make python3-venv python3-pip \
+  shfmt net-tools cpio bear ninja-build fish openssh-server
 
 # configuration ubuntu server network
 # sudo ifconfig enp0s8 192.168.56.110 netmask 255.255.255.0

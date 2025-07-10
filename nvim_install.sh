@@ -1,17 +1,22 @@
 #!/bin/bash
 
+set -e
+
 CMD=$1
 
 if [ $CMD = "install" ]; then
-    sudo snap install nvim --classic
+  sudo snap install nvim --classic
+
+  mkdir -p ~/OpenSrc
+  pushd ~/OpenSrc/
+  git clone https://github.com/ryanoasis/nerd-fonts.git --depth=1
+  pushd ~/OpenSrc/nerd-fonts
+  chmod +x ./install.sh
+  ./install.sh
+  echo "Notice: Modify Terminal fonts to Nerd-Fonts"
 fi
 
 if [ $CMD = "conf" ]; then
-    # nvim_conf
-
-    # https://spacevim.org/cn/
-    curl -sLf https://spacevim.org/cn/install.sh | bash
-
-    rm -rf ${HOME}/.SpaceVim.d/init.toml
-    ln -s ${HOME}/Develop/myscript/spacevim/init.toml ${HOME}//.SpaceVim.d/init.toml
+  # nvim_conf
+  git clone https://github.com/zsdfbb/JackLazyNvim.git ~/.config/nvim
 fi
