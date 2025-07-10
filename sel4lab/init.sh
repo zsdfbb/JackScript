@@ -3,7 +3,7 @@
 LAB_DIR=${HOME}/Develop/seL4Lab
 
 function prepare_env() { 
-    mkdir -P $LAB_DIR
+    mkdir -p $LAB_DIR
     cd $LAB_DIR
 
     git clone https://github.com/seL4/seL4-CAmkES-L4v-dockerfiles.git
@@ -13,8 +13,8 @@ function prepare_env() {
 
 
 function init_repo() {
-    mkdir -P $LAB_DIR
-    cd $LAB_DIR
+    mkdir -p $LAB_DIR/seL4test
+    cd $LAB_DIR/seL4test
     repo init -u https://github.com/seL4/seL4test-manifest.git
     repo sync
 }
@@ -30,6 +30,14 @@ function fix_code() {
     fi
     echo "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)" >> config.cmake
 }
+
+function prepare_tutorial() { 
+    mkdir -p $LAB_DIR/sel4-tutorials-manifest
+    cd $LAB_DIR/sel4-tutorials-manifest
+    repo init -u https://github.com/seL4/sel4-tutorials-manifest
+    repo sync
+}
+
 
 prepare_env
 init_repo
