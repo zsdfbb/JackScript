@@ -15,7 +15,7 @@ sudo apt install qemu-system-aarch64 qemu-user \
 	qemu-user-static gcc-aarch64-linux-gnu \
 	binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg \
 	build-essential libncurses5-dev git bison flex \
-	libssl-dev gdb gdb-multiarch cpio
+	libssl-dev gdb gdb-multiarch cpio clang clangd repo lld llvm
 
 #=================
 # 准备目录
@@ -43,6 +43,7 @@ cp $BASE_DIR/mkroot.sh $LAB_DIR/
 #=================
 # 准备 qemu run
 #=================
+cp $BASE_DIR/build_qemu.sh $LAB_DIR/
 cp $BASE_DIR/qemu.run $LAB_DIR/
 cp $BASE_DIR/qemu_syzkaller.run $LAB_DIR/
 
