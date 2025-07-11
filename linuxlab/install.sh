@@ -15,7 +15,8 @@ sudo apt install qemu-system-aarch64 qemu-user \
 	qemu-user-static gcc-aarch64-linux-gnu \
 	binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg \
 	build-essential libncurses5-dev git bison flex \
-	libssl-dev gdb gdb-multiarch cpio clang clangd repo lld llvm
+	libssl-dev gdb gdb-multiarch cpio clang clangd repo lld llvm \
+	libglib2.0-dev 
 
 #=================
 # 准备目录
@@ -26,7 +27,8 @@ git clone --depth=1 https://github.com/mirror/busybox.git -b 1_36_stable $LAB_DI
 
 mkdir -p $LAB_DIR/linux $LAB_DIR/linux/build
 cp $BASE_DIR/linux_build.sh $LAB_DIR/linux/build.sh
-git clone --depth=1 https://github.com/torvalds/linux.git $LAB_DIR/linux/src
+git clone --branch v6.15-rc7 --depth 1 https://github.com/torvalds/linux.git src
+# git clone --depth=1 https://github.com/torvalds/linux.git $LAB_DIR/linux/src
 
 mkdir -p $LAB_DIR/buildroot $LAB_DIR/buildroot/build
 cp $BASE_DIR/buildroot_build.sh $LAB_DIR/buildroot/build.sh
