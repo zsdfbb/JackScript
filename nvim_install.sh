@@ -52,3 +52,7 @@ if [ $CMD = "pack" ]; then
 
   echo "打包完成: ${OUTPUT}"
 fi
+
+if [ $CMD = "unpack" ]; then
+  tar -xzf nvim_lazy_bundle.tar.gz -C ~/
+fi
