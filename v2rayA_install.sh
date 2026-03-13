@@ -23,6 +23,8 @@ if [ $CMD = "prepare" ]; then
     mkdir -p v2ray_tmp
     unzip v2ray-linux-64.zip -d ./v2ray_tmp/
     sudo cp ./v2ray_tmp/v2ray /usr/bin
+    sudo chmod 777 /etc/v2raya
+    sudo chmod 777 /etc/v2raya/config.json
     sudo echo "{\"v2ray_path\": \"/usr/bin/v2ray\"}" > /etc/v2raya/config.json
   else
     echo "v2ray-linux-64.zip 已存在，跳过下载"
