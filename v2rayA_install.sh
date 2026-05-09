@@ -18,17 +18,21 @@ if [ $CMD = "install" ]; then
 fi
 
 if [ $CMD = "prepare" ]; then
+  sudo apt install -y unzip
+
   if [ ! -f "v2ray-linux-64.zip" ]; then
     wget "https://gh-proxy.org/https://github.com/v2fly/v2ray-core/releases/download/v5.37.0/v2ray-linux-64.zip"
-    mkdir -p v2ray_tmp
-    unzip v2ray-linux-64.zip -d ./v2ray_tmp/
-    sudo cp ./v2ray_tmp/v2ray /usr/bin
-    sudo chmod 777 /etc/v2raya
-    sudo chmod 777 /etc/v2raya/config.json
-    sudo echo "{\"v2ray_path\": \"/usr/bin/v2ray\"}" > /etc/v2raya/config.json
   else
     echo "v2ray-linux-64.zip 已存在，跳过下载"
   fi
+
+  mkdir -p v2ray_tmp
+  unzip -o v2ray-linux-64.zip -d ./v2ray_tmp/
+  sudo cp ./v2ray_tmp/v2ray /usr/bin
+  sudo chmod +x /usr/bin/v2ray
+
+  sudo mkdir -p /etc/v2raya
+  echo "{\"v2ray_path\": \"/usr/bin/v2ray\"}" | sudo tee /etc/v2raya/config.json > /dev/null
 
   sudo mkdir -p /usr/local/share/v2ray
   if [ ! -f "/usr/local/share/v2ray/geoip.dat" ]; then
