@@ -45,7 +45,13 @@ function zsh_install() {
         return 1
     fi
 
-    if ! sed -i 's/ZSH_THEME=\".*\"/ZSH_THEME=\"crcandy\"/g' "$HOME/.zshrc"; then
+    # macOS (BSD sed) 需要 -i 后跟备份扩展，GNU sed 不需要。统一为可移植写法。
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        SED_INPLACE=(sed -i '')
+    else
+        SED_INPLACE=(sed -i)
+    fi
+    if ! "${SED_INPLACE[@]}" 's/ZSH_THEME=\".*\"/ZSH_THEME=\"crcandy\"/g' "$HOME/.zshrc"; then
         echo "ERROR: 设置 zsh 主题失败" >&2
         return 1
     fi
